@@ -5,7 +5,7 @@ import Pokeball from '../images/pokeball.png';
 
 const Generate = (props) => {
 	const [ amount, setAmount ] = useState(1);
-	const { cards, setCards } = props;
+	const { cards, setCards,newGame } = props;
 	const [ loading, setLoading ] = useState(false);
  
 	let cardsb = [];
@@ -46,6 +46,7 @@ const Generate = (props) => {
 	const handleGenerateCards = (e) => {
 		e.preventDefault();
 		setLoading(true);
+		newGame();
 		setTimeout(() => {
 			setLoading(false);
 			setCards(generate().sort(() => Math.random() - 0.5));
@@ -55,35 +56,33 @@ const Generate = (props) => {
 
 	return (
 		<>
-		<div className="d-flex justify-content-center">
-			<form className="form-inline" onSubmit={handleGenerateCards}>
-				<div className="form-group form-inline col-auto">
-					<label className="my-1 mr-2">Number of cards: </label>
-					<input
-						type="number"
-						className="form-control mb-2"
-						onChange={(e) => setAmount(e.target.value)}
-						min="1"
-						max="50"
-						value={amount}
-					/>
-				</div>
-				<div className="col-auto">
-					<button type="submit" className="btn btn-danger mb-2">
-						Generate Cards
-					</button>
-				</div>
-			</form>
-		</div>
-		{loading? 
-			<div className="d-flex justify-content-center mt-5 text-danger" >
-				<div className="spinner-border" role="status">
-					<span className="sr-only">Loading...</span>
-				</div>
-			</div> 
-		:
-			 ''  }
-			 
+			<div className="d-flex justify-content-center">
+				<form className="form-inline" onSubmit={handleGenerateCards}>
+					<div className="form-group form-inline col-auto">
+						<label className="my-1 mr-2">Number of cards: </label>
+						<input
+							type="number"
+							className="form-control mb-2"
+							onChange={(e) => setAmount(e.target.value)}
+							min="1"
+							max="50"
+							value={amount}
+						/>
+					</div>
+					<div className="col-auto">
+						<button type="submit" className="btn btn-danger mb-2">
+							Generate Cards
+						</button>
+					</div>
+				</form>
+			</div>
+			{loading&& 
+				<div className="d-flex justify-content-center mt-5 text-danger" >
+					<div className="spinner-border" role="status">
+						<span className="sr-only">Loading...</span>
+					</div>
+				</div> 
+			}	 
 		</>
 	);
 };

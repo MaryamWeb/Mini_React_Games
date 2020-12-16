@@ -5,6 +5,7 @@ const Card = (props) => {
 	const [ count, setCount ] = useState(0);
 	const [ firstCard, setFirstCard ] = useState(null);
 	const [ secondCard, setSecondCard ] = useState(null);
+	const { gameOver, setGameOver } = props;
 
 	useEffect( 
 		() => {
@@ -53,7 +54,7 @@ const Card = (props) => {
 	};
 
 	return (
-		<div className="mx-auto mt-3 ">
+		<div className="">
 			{cards.map(
 				(c, i) =>
 					c.flipped === false && c.found === false ? (
@@ -61,7 +62,7 @@ const Card = (props) => {
 							key={i}
 							alt={c.name}
 							src={c.url2}
-							className="img-thumbnail col-2 m-1"
+							className="  single-card m-2"
 							onClick={() => handleClick(c)}
 						/>
 					) : (
@@ -69,7 +70,7 @@ const Card = (props) => {
 							key={i}
 							alt={c.name}
 							src={c.url}
-							className="img-thumbnail col-2 m-1"
+							className="  single-card  m-2"
 							onClick={() => handleClick(c)}
 						/>
 					)

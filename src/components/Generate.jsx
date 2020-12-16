@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import Pokeball from '../images/pokeball.png';
 
+
 const Generate = (props) => {
 	const [ amount, setAmount ] = useState(1);
 	const { cards, setCards } = props;
 	const [ loading, setLoading ] = useState(false);
+ 
 	let cardsb = [];
 
 	const generate = () => {
@@ -16,7 +18,7 @@ const Generate = (props) => {
 			var r = Math.floor(Math.random() * (151 - 1 + 1) + 1); //Math.floor(Math.random() * (max - min + 1)) + min;
 			if (arr.indexOf(r) === -1) arr.push(r);
 		}
-		for (let i = 1; i < amount; i++) {
+		for (let i = 1; i <= amount; i++) {
 			let card1 = {
 				id: idset++,
 				name: `pic${i}`,
@@ -67,7 +69,7 @@ const Generate = (props) => {
 					/>
 				</div>
 				<div className="col-auto">
-					<button type="submit" className="btn btn-primary mb-2">
+					<button type="submit" className="btn btn-danger mb-2">
 						Generate Cards
 					</button>
 				</div>
@@ -81,6 +83,7 @@ const Generate = (props) => {
 			</div> 
 		:
 			 ''  }
+			 
 		</>
 	);
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Flip from 'react-reveal/Flip';
 
 const Card = (props) => {
 	const { cards, setCards,gameOver, setGameOver,score, setScore,flipCount,setFlipCount  } = props;
@@ -39,7 +40,7 @@ const Card = (props) => {
 					setFirstCard(null);
 					setSecondCard(null);
 					setScore(score-10);
-				}, 1200);
+				}, 1300);
 			}
 			
 			
@@ -75,14 +76,16 @@ const Card = (props) => {
 							className="single-card m-2"
 							onClick={() => handleClick(c)}
 						/>
-					) : (
+						) : (
+							<Flip left delay={0}  >
 						<img
 							key={i}
 							alt={c.name}
 							src={c.url}
 							className="single-card m-2"
 							onClick={() => handleClick(c)}
-						/>
+							/>
+							</Flip>
 					)
 			)}
 		</>

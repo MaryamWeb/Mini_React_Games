@@ -20,8 +20,8 @@ function App() {
 	  
 	return (
 		<>
-			<div className="container-fluid mt-5 row">
-				<div className="col-8 px-0 d-flex justify-content-center flex-wrap ">  
+			<div className="container-fluid mt-5 row mx-2">
+				<div className="col-8 px-0">  
 					<Router>
 						<Card path="/play" cards={cards} setCards={setCards} gameOver={gameOver} setGameOver={setGameOver} score={score} setScore={setScore} flipCount={flipCount} setFlipCount={setFlipCount}/>
 					</Router>

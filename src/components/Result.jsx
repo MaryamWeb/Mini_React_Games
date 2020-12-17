@@ -1,26 +1,33 @@
 import React from 'react';
 import Trophy from '../images/trophy.png';
 import Lose from '../images/lose.jpg';
+import Swing from 'react-reveal/Swing';
+import Fade from 'react-reveal/Fade';
 
 const Result = (props) => {
 	const { gameOver,score,newGame,cards} = props;
 
 	return (
 		<>
-			{cards.length > 1 && gameOver === false && <h3 className="text-center">Your Score so far is {score}pts</h3>}
+			{cards.length > 1 && gameOver === false && <h3 className="text-center mt-3">Your Score so far is {score}pts</h3>}
 			{gameOver===true&&
 			<>
 			{score > 10?
 			<>
 			<div className="text-center">
-				<img alt='trophy' src={Trophy} className="mt-5 trophy"/>
-				<h1 className="mt-2">Congratulations</h1>
+				<Fade duration={3000}>
+					<Swing forever duration={2000}>
+						<img alt='trophy' src={Trophy} className="mt-5 trophy"/>
+					</Swing>
+				
+				<h1 className="mt-3">Congratulations</h1>
 				<h3>Your Total Score Is {score}pts</h3>
 				<div className="text-center ">
 					<button className="btn btn-link text-danger mb-2" onClick={newGame}>
 						Play Again
 					</button>
 				</div>
+				</Fade>
 			</div>
 			</>
 		:

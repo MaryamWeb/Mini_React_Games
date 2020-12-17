@@ -2,6 +2,7 @@
 	width: 5rem;
 	height: 5rem;
 }
+
 .single-card {
 	width: 150px;
 	height: 150px;
@@ -12,4 +13,9 @@
 }
 .lose {
 	width: 80%;
+}
+body {
+	background-image: url('./images/pokemon-wallpaper.png');
+
+	background-size: cover;
 }

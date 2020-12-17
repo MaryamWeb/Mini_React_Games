@@ -9,7 +9,7 @@ const Result = (props) => {
 
 	return (
 		<>
-			{cards.length > 1 && gameOver === false && <h3 className="text-center mt-3">Your Score so far is {score}pts</h3>}
+			{cards.length > 1 && gameOver === false && <h3 className="text-center mt-3">Your Score so far is <span>{score}</span>pts</h3>}
 			{gameOver===true&&
 			<>
 			{score > 10?
@@ -21,9 +21,9 @@ const Result = (props) => {
 					</Swing>
 				
 				<h1 className="mt-3">Congratulations</h1>
-				<h3>Your Total Score Is {score}pts</h3>
+				<h3>Your Total Score Is <span>{score}</span>pts</h3>
 				<div className="text-center ">
-					<button className="btn btn-link text-danger mb-2" onClick={newGame}>
+					<button className="btn btn-link mb-2 play-again" onClick={newGame}>
 						Play Again
 					</button>
 				</div>
@@ -34,9 +34,9 @@ const Result = (props) => {
 			<>
 			<div className="text-center">
 				<img alt='crying' src={Lose} className="mt-5 lose"/>
-				<h3>{score}pts is a low score, maybe try again?</h3>
+				<h3 className="mt-3"><span>{score}</span>pts is a low score, maybe try again?</h3>
 				<div className="text-center ">
-					<button className="btn btn-link text-danger mb-2" onClick={newGame}>
+					<button className="btn btn-link mb-2 play-again" onClick={newGame}>
 					Play Again
 					</button>
 				</div>

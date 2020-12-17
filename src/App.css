@@ -1,8 +1,17 @@
+body {
+	background-image: url('./images/pokemon-wallpaper.png');
+	background-size: cover;
+	font-family: 'Berlin Sans FB Demi ';
+}
+:root {
+	--gold-color: #f0a500;
+	--brown-color: #7c3c21;
+	--red-color: #cd0a0a;
+}
 .spinner-border {
 	width: 5rem;
 	height: 5rem;
 }
-
 .single-card {
 	width: 150px;
 	height: 150px;
@@ -13,9 +22,23 @@
 }
 .lose {
 	width: 80%;
+	border-radius: 10px;
 }
-body {
-	background-image: url('./images/pokemon-wallpaper.png');
-
-	background-size: cover;
+h1 {
+	-webkit-text-stroke: 0.5px var(--brown-color);
+	color: var(--gold-color);
+}
+h3 {
+	color: var(--brown-color);
+}
+span {
+	color: var(--red-color);
+}
+.play-again {
+	font-size: 1.2rem;
+	color: var(--red-color);
+	font-weight: bold;
+}
+.play-again:hover {
+	color: var(--brown-color);
 }

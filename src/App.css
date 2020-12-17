@@ -8,9 +8,16 @@ body {
 	--brown-color: #7c3c21;
 	--red-color: #cd0a0a;
 }
+.spinner-container {
+	margin-top: 15%;
+}
 .spinner-border {
-	width: 5rem;
-	height: 5rem;
+	width: 10rem;
+	height: 10rem;
+}
+.get-ready {
+	margin-top: 20px;
+	font-size: 1.4rem;
 }
 .single-card {
 	width: 150px;

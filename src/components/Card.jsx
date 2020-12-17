@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Flip from 'react-reveal/Flip';
 
 const Card = (props) => {
-	const { cards, setCards,gameOver, setGameOver,score, setScore,flipCount,setFlipCount  } = props;
+	const { cards, setGameOver,score, setScore,flipCount,setFlipCount,loading  } = props;
 	const [ count, setCount ] = useState(0);
 	const [ firstCard, setFirstCard ] = useState(null);
 	const [ secondCard, setSecondCard ] = useState(null);
@@ -66,6 +66,14 @@ const Card = (props) => {
 
 	return (
 		<>
+			{loading&& 
+				<div className="d-flex flex-column align-items-center text-danger spinner-container" >
+					<div className="spinner-border" role="status">
+						<span className="sr-only">Loading...</span>
+					</div>
+					<p className="get-ready">Get Ready!!!</p>
+				</div> 
+			}	 
 			{cards.map(
 				(c, i) =>
 					c.flipped === false && c.found === false ? (

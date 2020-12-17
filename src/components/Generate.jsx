@@ -4,9 +4,10 @@ import Pokeball from '../images/pokeball.png';
 
 
 const Generate = (props) => {
-	const [ amount, setAmount ] = useState(1);
+	const [ amount, setAmount ] = useState(2);
 	const { cards, setCards,newGame } = props;
 	const [ loading, setLoading ] = useState(false);
+	const [message, setMessage] = useState('')
  
 	let cardsb = [];
 
@@ -45,13 +46,21 @@ const Generate = (props) => {
 
 	const handleGenerateCards = (e) => {
 		e.preventDefault();
-		setLoading(true);
-		newGame();
-		setTimeout(() => {
-			setLoading(false);
-			setCards(generate().sort(() => Math.random() - 0.5));
-			navigate(`/play`);
-		}, 1200);
+		if(amount<=3){
+			setMessage("That's not very challenging..")
+			newGame();
+		}
+		else{
+			setLoading(true);
+			setMessage("")
+			newGame();
+			setTimeout(() => {
+				setAmount(2)
+				setLoading(false);
+				setCards(generate().sort(() => Math.random() - 0.5));
+				navigate(`/play`);
+			}, 1200);
+		}
 	};
 
 	return (
@@ -64,7 +73,7 @@ const Generate = (props) => {
 							type="number"
 							className="form-control mb-2"
 							onChange={(e) => setAmount(e.target.value)}
-							min="1"
+							min="2"
 							max="50"
 							value={amount}
 						/>
@@ -76,6 +85,7 @@ const Generate = (props) => {
 					</div>
 				</form>
 			</div>
+			{message!==''&&<p className='text-danger text-center'>{message}</p>}
 			{loading&& 
 				<div className="d-flex justify-content-center mt-5 text-danger" >
 					<div className="spinner-border" role="status">
